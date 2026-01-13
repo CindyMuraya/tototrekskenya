@@ -1,0 +1,138 @@
+/* Custom font import */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    /* Apply the custom font globally */
+    body {
+        font-family: 'Poppins', 'Montserrat', 'Open Sans', sans-serif;
+    }
+    .active {
+        @apply text-primary border-b-2 border-primary;
+    }
+    
+    /* Global scrollbar hiding */
+    html, body {
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+    }
+    
+    html::-webkit-scrollbar,
+    body::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+    
+    /* Smooth scrolling */
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+@layer components{
+    .button-outline {
+        @apply rounded-md border-2
+        border-sunset-orange hover:bg-golden-orange/80
+        text-amber-950 hover:text-white dark:text-primary dark:hover:text-black
+        tracking-wider px-6 py-2 
+        transition-all duration-500;
+    }
+    
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+    
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .scrollbar-hide {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+    
+    /* Skip to main content for accessibility */
+    .skip-to-content {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: #F29C46;
+        color: white;
+        padding: 8px 16px;
+        text-decoration: none;
+        z-index: 100;
+    }
+    
+    .skip-to-content:focus {
+        top: 0;
+    }
+}
+
+/* Swiper Carousel Custom Styles */
+.swiper-container {
+    padding: 50px 0 80px 0 !important;
+}
+
+.swiper-slide-custom {
+    width: 380px !important;
+    height: auto !important;
+    transition: all 0.4s ease-in-out !important;
+}
+
+/* Active (centered) slide - bulging effect */
+.swiper-slide-active .swiper-slide-custom > div,
+.swiper-slide-active > div {
+    transform: scale(1.2) !important;
+    z-index: 10 !important;
+}
+
+/* Side slides - clearly visible */
+.swiper-slide-prev > div,
+.swiper-slide-next > div {
+    transform: scale(0.95) !important;
+    opacity: 0.95 !important;
+}
+
+/* Other slides - still visible */
+.swiper-slide > div {
+    transform: scale(0.85) !important;
+    opacity: 0.85 !important;
+    transition: all 0.5s ease-in-out !important;
+}
+
+/* Navigation buttons styling */
+.swiper-button-next,
+.swiper-button-prev {
+    color: #F29C46 !important;
+    width: 50px !important;
+    height: 50px !important;
+    background: transparent !important;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4)) !important;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    color: #FFB84D !important;
+    transform: scale(1.1) !important;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5)) !important;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+    font-size: 28px !important;
+    font-weight: 900 !important;
+}
+
+/* Pagination styling */
+.swiper-pagination-bullet {
+    background: #5A351D !important;
+    opacity: 0.4 !important;
+    width: 12px !important;
+    height: 12px !important;
+}
+
+.swiper-pagination-bullet-active {
+    background: #F29C46 !important;
+    opacity: 1 !important;
+    transform: scale(1.3) !important;
+}
