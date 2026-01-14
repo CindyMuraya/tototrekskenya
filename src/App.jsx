@@ -15,6 +15,29 @@ import TravelTipsDetails from "./pages/TravelTipsDetails.jsx";
 import About from "./pages/About.jsx";
 import Services from "./pages/Services.jsx";
 import Packages from "./pages/Packages.jsx";
+import Script from "next/script";
+
+export default function MyApp({ Component, pageProps }) {
+  return (
+    <>
+      <Script
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=G-9L6VWX2LGX`}
+      />
+      <Script strategy="afterInteractive" id="ga-script">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-9L6VWX2LGX');
+        `}
+      </Script>
+
+      <Component {...pageProps} />
+    </>
+  );
+}
+
 
 const App = () => {
   // Theme management
